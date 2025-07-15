@@ -366,6 +366,7 @@
             100% { transform: rotate(360deg); }
         }
         
+        
         /* Skills Section */
         .skills {
             background: linear-gradient(135deg, #000000 0%, #434343 100%);
@@ -376,12 +377,28 @@
             width: 100%;
         }
         
+        /* Base section title style */
         .section-title {
             text-align: center;
             font-size: 3em;
             margin-bottom: 50px;
-            color: rgb(248, 247, 247);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* White text for dark background sections */
+        .skills .section-title,
+        .resume .section-title,
+        .home .section-title {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Black text for light background sections */
+        .about .section-title,
+        .projects .section-title,
+        .contact .section-title {
+            color: black;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
         }
         
         .skills-grid {
@@ -681,50 +698,43 @@
         }
         
         /* Responsive Design */
+        /* Enhanced mobile sidebar behavior */
         @media (max-width: 768px) {
             .sidebar {
                 width: 60px;
+                transition: width 0.3s ease;
             }
             
-            .sidebar:hover {
-                width: 60px;
+            /* Force collapsed state on mobile after navigation */
+            .sidebar.mobile-collapsed {
+                width: 60px !important;
+                overflow: hidden;
             }
             
+            /* Prevent hover expansion on mobile when collapsed */
+            .sidebar.mobile-collapsed:hover {
+                width: 60px !important;
+            }
+            
+            /* Hide nav text on mobile */
             .nav-text {
                 display: none;
             }
             
-            .main-content {
-                margin-left: 60px;
+            /* Improve touch targets on mobile */
+            .nav-link {
+                padding: 18px 15px;
+                justify-content: center;
             }
             
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .nav-icon {
+                font-size: 1.4em;
             }
             
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .certifications-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .home h1 {
-                font-size: 2.5em;
-            }
-            
-            .section-title {
-                font-size: 2em;
+            /* Adjust social links for mobile */
+            .social-link {
+                font-size: 1.3em;
+                margin-bottom: 15px;
             }
         }
         
@@ -760,6 +770,47 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        .project-card.featured {
+            border: 2px solid rgba(74, 144, 226, 0.3);
+            background: rgba(74, 144, 226, 0.05);
+        }
+
+        .project-card.featured:hover {
+            border-color: rgba(74, 144, 226, 0.6);
+            box-shadow: 0 25px 50px rgba(74, 144, 226, 0.15);
+        }
+
+        .tech-tag {
+            background: rgba(0,0,0,0.1);
+            color: black;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 500;
+            border: 1px solid rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tech-tag:hover {
+            background: rgba(0,0,0,0.2);
+            transform: scale(1.05);
+        }
+
+        /* Enhanced project grid for more projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1161,7 +1212,7 @@ memory load and enhancing throughput.</p>
                             </div>
                             <div class="project-content">
                                 <h3 class="project-title">AI-Powered ChatBot :AI Chatbot for Women's Safety and Health:</h3>
-                                <p class="project-description">Developed an AI-powered chatbot using Django, NLP, and OpenAI’s LLM to respond exclusively to women-focused queries 
+                                <p class="project-description">Developed an AI-powered chatbot using Django, NLP, and OpenAI's LLM to respond exclusively to women-focused queries 
 related to safety and health. Integrated keyword mapping and topic filtering to restrict responses to relevant domains, ensuring responsible AI behavior. 
 Enabled voice-to-text input for improved accessibility, supporting inclusive interaction for non-technical and disabled users. </p>
                                 <div class="project-tech">
@@ -1213,49 +1264,6 @@ Enabled voice-to-text input for improved accessibility, supporting inclusive int
             </div>
         </section>
 
-        <style>
-        .project-card.featured {
-            border: 2px solid rgba(74, 144, 226, 0.3);
-            background: rgba(74, 144, 226, 0.05);
-        }
-
-        .project-card.featured:hover {
-            border-color: rgba(74, 144, 226, 0.6);
-            box-shadow: 0 25px 50px rgba(74, 144, 226, 0.15);
-        }
-
-        .tech-tag {
-            background: rgba(0,0,0,0.1);
-            color: black;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.75em;
-            font-weight: 500;
-            border: 1px solid rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .tech-tag:hover {
-            background: rgba(0,0,0,0.2);
-            transform: scale(1.05);
-        }
-
-        /* Enhanced project grid for more projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        </style>
-
         <!-- Resume Section -->
         <section id="resume" class="section resume">
             <div class="section-content">
@@ -1267,9 +1275,6 @@ Enabled voice-to-text input for improved accessibility, supporting inclusive int
                         <p style="margin-bottom: 30px;">Get my complete professional profile and experience</p>
                         <a href="DhanupriyaA_resume.pdf" class="download-btn" onclick="downloadResume()">
                             <i class="fas fa-download"></i> Download PDF
-                        </a>
-                        <a href="#" class="download-btn" onclick="showSection('resume')">
-                            <i class="fas fa-eye"></i> View Online
                         </a>
                     </div>
 
@@ -1361,6 +1366,22 @@ Enabled voice-to-text input for improved accessibility, supporting inclusive int
             }, 1000);
         });
 
+        // Function to close sidebar on mobile
+        function closeSidebarOnMobile() {
+            const sidebar = document.querySelector('.sidebar');
+            
+            // Check if it's mobile (you can adjust the width as needed)
+            if (window.innerWidth <= 768) {
+                // Remove any hover state and force collapse
+                sidebar.classList.add('mobile-collapsed');
+                
+                // Remove the class after a short delay to allow normal hover behavior later
+                setTimeout(() => {
+                    sidebar.classList.remove('mobile-collapsed');
+                }, 300);
+            }
+        }
+
         // Section navigation
         function showSection(sectionId) {
             // Remove active class from all sections and nav links
@@ -1383,6 +1404,9 @@ Enabled voice-to-text input for improved accessibility, supporting inclusive int
             
             // Reset scroll position to top when switching sections
             document.getElementById(sectionId).scrollTop = 0;
+            
+            // Auto-close sidebar on mobile after navigation
+            closeSidebarOnMobile();
         }
 
         // Particles animation
@@ -1429,7 +1453,6 @@ Enabled voice-to-text input for improved accessibility, supporting inclusive int
         }
 
         // Download resume function
-
         function downloadResume() {
             // Create a temporary link to trigger download
             const link = document.createElement('a');
@@ -1439,7 +1462,6 @@ Enabled voice-to-text input for improved accessibility, supporting inclusive int
             link.click();
             document.body.removeChild(link);
         }
-
 
         // Keyboard navigation
         document.addEventListener('keydown', function(e) {
