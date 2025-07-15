@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhanupriya A - Section View Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow: hidden; /* Prevent body scrolling */
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+        }
+        
+        /* Navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 80px;
+            height: 100vh;
+            background: rgba(0,0,0,0.95);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-right: 2px solid rgba(255,255,255,0.1);
+        }
+        
+        .sidebar:hover {
+            width: 200px;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .nav-items {
+            flex: 1;
+            width: 100%;
+        }
+        
+        .nav-item {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            cursor: pointer;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255,255,255,0.1);
+            border-left: 3px solid white;
+            transform: translateX(5px);
+        }
+        
+        .nav-icon {
+            font-size: 1.3em;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .nav-text {
+            margin-left: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .sidebar:hover .nav-text {
+            opacity: 1;
+        }
+        
+        .social-links {
+            margin-top: auto;
+        }
+        
+        .social-link {
+            display: block;
+            color: white;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .social-link:hover {
+            color: #ccc;
+            transform: scale(1.3) rotate(360deg);
+        }
+        
+        /* Main Content Container */
+        .main-content {
+            margin-left: 80px;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100%);
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow-y: auto; /* Allow scrolling within each section */
+            overflow-x: hidden;
+            display: flex;
+            align-items: flex-start; /* Change to flex-start for scrollable content */
+            justify-content: center;
+            padding: 40px;
+        }
+        
+        .section.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+        
+        /* Custom scrollbar for sections */
+        .section::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .section::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+        
+        .section::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 10px;
+        }
+        
+        .section::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.5);
+        }
+        
+        /* Section Content Containers */
+        .section-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 40px; /* Add top padding for better spacing */
+        }
+        
+        /* Home Section */
+        .home {
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            align-items: center; /* Keep centered for home */
+        }
+        
+        .particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .home-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .yin-yang {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 40px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .yin-yang:hover {
+            transform: scale(1.2) rotate(180deg);
+        }
+        
+        .yin-yang svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 10px 20px rgba(255,255,255,0.2));
+            transition: all 0.3s ease;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .home h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffffff, #cccccc, #ffffff, #dddddd);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .intro-text {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: slideInUp 1s ease 0.5s both;
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 0.9;
+                transform: translateY(0);
+            }
+        }
+        
+        .cta-button {
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+        
+        .cta-button:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            color: black;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start; /* Change to start for better scrolling */
+            min-height: calc(100vh - 80px); /* Ensure minimum height */
+        }
+        
+        .about-card {
+            background: rgba(0,0,0,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .about-card h2 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        .about-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .about-image {
+            text-align: center;
+            position: sticky;
+            top: 40px; /* Stick to top when scrolling */
+        }
+        
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #000000, #434343);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8em;
+            color: white;
+            margin: 0 auto;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid rgba(0,0,0,0.2);
+        }
+        
+        .profile-pic:hover {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+        }
+        
+        .profile-pic::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Skills Section */
+        .skills {
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+            color: white;
+        }
+        
+        .skills-container {
+            width: 100%;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 50px;
+            color: rgb(248, 247, 247);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 60px; /* Add bottom margin for scrolling space */
+        }
+        
+        .skill-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            transform-style: preserve-3d;
+        }
+        
+        .skill-card:hover {
+            transform: rotateY(10deg) rotateX(10deg) translateZ(20px);
+            box-shadow: 0 25px 50px rgba(255,255,255,0.1);
+        }
+        
+        .skill-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+        .skill-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .skill-tag {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .skill-tag:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.1);
+        }
+        
+        /* Projects Section */
+        .projects {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            color: black;
+        }
+        
+        .projects-container {
+            width: 100%;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 60px; /* Add bottom margin for scrolling space */
+        }
+        
+        .project-card {
+            background: rgba(0,0,0,0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            transform-origin: center;
+        }
+        
+        .project-card:hover {
+            transform: scale(1.05) rotateZ(2deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .project-image {
+            height: 150px;
+            background: linear-gradient(45deg, #000000, #434343);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5em;
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: black;
+            font-weight: 600;
+        }
+        
+        .project-description {
+            color: rgba(0,0,0,0.7);
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .tech-tag {
+            background: rgba(0,0,0,0.1);
+            color: black;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.7em;
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .project-link {
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.2);
+        }
+        
+        .project-link:hover {
+            background: rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Resume Section */
+        .resume {
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+            color: white;
+        }
+        
+        .resume-container {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .download-section {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255,255,255,0.1);
+        }
+        
+        .download-btn {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.2);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        
+        .download-btn:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+        }
+        
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 60px; /* Add bottom margin for scrolling space */
+        }
+        
+        .cert-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .cert-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(255,255,255,0.1);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            color: black;
+        }
+        
+        .contact-container {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 60px; /* Add bottom margin for scrolling space */
+        }
+        
+        .contact-card {
+            background: rgba(0,0,0,0.05);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .contact-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: black;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-icon {
+            transform: scale(1.2) rotate(360deg);
+        }
+        
+        .contact-text {
+            font-size: 1.1em;
+        }
+        
+        .contact-link {
+            color: black;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: #666;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 60px;
+            }
+            
+            .sidebar:hover {
+                width: 60px;
+            }
+            
+            .nav-text {
+                display: none;
+            }
+            
+            .main-content {
+                margin-left: 60px;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .home h1 {
+                font-size: 2.5em;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: all 0.5s ease;
+        }
+        
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255,255,255,0.3);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="logo" onclick="showSection('home')">DA</div>
+        <div class="nav-items">
+            <div class="nav-item">
+                <div class="nav-link active" onclick="showSection('home')">
+                    <i class="nav-icon fas fa-home"></i>
+                    <span class="nav-text">Home</span>
+                </div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-link" onclick="showSection('about')">
+                    <i class="nav-icon fas fa-user"></i>
+                    <span class="nav-text">About</span>
+                </div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-link" onclick="showSection('skills')">
+                    <i class="nav-icon fas fa-code"></i>
+                    <span class="nav-text">Skills</span>
+                </div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-link" onclick="showSection('projects')">
+                    <i class="nav-icon fas fa-project-diagram"></i>
+                    <span class="nav-text">Projects</span>
+                </div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-link" onclick="showSection('resume')">
+                    <i class="nav-icon fas fa-file-alt"></i>
+                    <span class="nav-text">Resume</span>
+                </div>
+            </div>
+            <div class="nav-item">
+                <div class="nav-link" onclick="showSection('contact')">
+                    <i class="nav-icon fas fa-envelope"></i>
+                    <span class="nav-text">Contact</span>
+                </div>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/dhanupriya-arivanantham-3ba2ab248" class="social-link" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/PythonMLClub/Dhanupriya---Profile" class="social-link" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="social-link" target="_blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active home">
+            <canvas class="particles-canvas" id="particles"></canvas>
+            <div class="home-content">
+                <div class="yin-yang" onclick="showSection('about')">
+                    <svg aria-hidden="true" data-prefix="fas" data-icon="yin-yang" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" fill="white">
+                        <path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm0 376c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm0-128c-53.02 0-96 42.98-96 96s42.98 96 96 96c-106.04 0-192-85.96-192-192S141.96 64 248 64c53.02 0 96 42.98 96 96s-42.98 96-96 96zm0-128c-17.67 0-32 14.33-32 32s14.33 32 32 32 32-14.33 32-32-14.33-32-32-32z"/>
+                    </svg>
+                </div>
+                <h1>Dhanupriya A</h1>
+                <p class="intro-text">Python & AI Developer | Python Enthusiastic Developer | Data Pipeline & ML Expert</p>
+                <div class="cta-button" onclick="showSection('projects')">Explore My Work</div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about">
+            <div class="section-content">
+                <div class="about-container">
+                    <div class="about-card">
+                        <h2>Hello 👋</h2>
+                        <h2>I'm Dhanupriya</h2>
+                        <h3>Python & AI Developer</h3>
+                        <p>
+                        With <strong>3+ years of experience</strong>, I specialize in building intelligent search applications, automating data workflows, and developing AI-powered solutions using Python, Snowflake, NLP, LLLM and FastAPI. I have proven success in developing real-time dashboards, anomaly detection models, and LLM-powered tools for healthcare and business domains.
+                        </p>
+                        <br>
+                        <p>
+                        I currently work at <strong>Texila Educare Healthcare and Technology Enterprise</strong>, where I develop AI-powered face recognition systems using YOLOv8, ArcFace, CNN and FAISS for automated employee attendance tracking.
+                        </p>
+                        <br>
+                        <p>
+                        Previously, at <strong>PBS Info Systems Pvt Ltd</strong>, I built groundbreaking AI solutions including the first-ever Document AI pipeline with Snowflake (featured in official Snowflake Quickstart guide), enterprise search platforms using Cortex Search and Arctic Embed, AI assistants with FastAPI + React, time-series anomaly detection systems, and scalable ETL pipelines using Apache Airflow and Azure Blob Storage.
+                        </p>
+                        <br>
+                        <p>
+                        I hold a <strong>Master's in Computer Applications (MCA)</strong> and have been recognized with the <strong>"New Technology Enthusiastic"</strong> award from DCI Company for my innovative contributions to AI and machine learning.
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <div class="profile-pic">
+                            <img src="dhanu.jpeg" alt="Dhanupriya" style="border-radius: 50%; width: 250px; height: 250px; object-fit: cover; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills">
+        <div class="section-content">
+            <div class="skills-container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+
+                <!-- Python Development -->
+                <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fab fa-python"></i>
+                </div>
+                <h3 class="skill-title">Python Development</h3>
+                <p>Robust development in Python with focus on AI, automation, and secure APIs</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">JWT</span>
+                </div>
+                </div>
+
+                <!-- Machine Learning & AI -->
+                <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3 class="skill-title">Machine Learning & AI</h3>
+                <p>Hands-on with LLMs, NLP, and computer vision for real-world applications</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">LLM</span>
+                    <span class="skill-tag">NLP</span>
+                    <span class="skill-tag">YOLOv8</span>
+                    <span class="skill-tag">ArcFace</span>
+                    <span class="skill-tag">FAISS</span>
+                    <span class="skill-tag">CNN</span>
+                </div>
+                </div>
+
+                <!-- Snowflake & Data Engineering -->
+                <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h3 class="skill-title">Snowflake & Data Engineering</h3>
+                <p>End-to-end pipelines and intelligent search using Cortex & Snowflake AI stack</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Cortex Agent</span>
+                    <span class="skill-tag">Cortex Search</span>
+                     <span class="skill-tag">Cortex Analyst</span>
+                    <span class="skill-tag">Cortex Complete</span>
+                    <span class="skill-tag">Apache Airflow</span>
+                    <span class="skill-tag">ETL</span>
+                    <span class="skill-tag">Azure Blob Storage</span>
+                </div>
+                </div>
+
+                <!-- Web & Visualization -->
+                <div class="skill-card">
+                <div class="skill-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h3 class="skill-title">Web & Visualization</h3>
+                <p>Modern, interactive apps with visual analytics and frontend integration</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Streamlit</span>
+                    <span class="skill-tag">Plotly</span>
+                    <span class="skill-tag">Recharts</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                </div>
+                </div>
+
+            </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section projects">
+            <div class="section-content">
+                <div class="projects-container">
+                    <h2 class="section-title">Featured Projects</h2>
+                    <div class="projects-grid">
+                        
+                        <!-- Current Role Projects -->
+                        <div class="project-card featured">
+                            <div class="project-image">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Face Recognition Attendance Tracking System from CCTV Surveillance</h3>
+                                <p class="project-description">Python-based CCTV surveillance system for Tidel Park to automate employee attendance tracking. Integrates YOLOv8 for detection, ArcFace for embeddings, FAISS for similarity search with deduplication logic and CSV logging.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">YOLOv8</span>
+                                    <span class="tech-tag">ArcFace</span>
+                                    <span class="tech-tag">FAISS</span>
+                                    <span class="tech-tag">OpenCV</span>
+                                    <span class="tech-tag">CNN</span>
+                                    <span class="tech-tag">Computer Vision</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/PythonMLClub/Face-Recognition-Attendance-Tracking-System-from-CCTV-Surveillance" class="project-link">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Document AI Pipeline -->
+                        <div class="project-card featured">
+                            <div class="project-image">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Document AI Pipeline Automation</h3>
+                                <p class="project-description">First-ever real-time Document AI ingestion and validation ETL pipeline with Snowflake. Streamlit-powered LiveView interface for operational transparency. Featured in official Snowflake Quickstart guide.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Snowflake</span>
+                                    <span class="tech-tag">Document AI</span>
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">ETL</span>
+                                    <span class="tech-tag">Streamlit</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/PythonMLClub/DOC_AI_Pipeline-main" class="project-link">
+                                        <i class="fab fa-github"></i> Code  
+                                    </a>
+                                    <a href="https://quickstarts.snowflake.com/guide/doc-ai-pipeline-automation/index.html#0" class="project-link" target="_blank">
+                                        <i class="fas fa-external-link-alt"></i> Snowflake Guide
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enterprise Search Platform -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Enterprise Knowledge Search Platform using Snowflake Cortex and Generative AI</h3>
+                                <p class="project-description">Hybrid semantic search using Snowflake Cortex Search and Arctic Embed. Built Python UDF using LangChain to extract and chunk content from PDFs, Excel, and CSV files for intelligent enterprise data discovery.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Cortex Search</span>
+                                    <span class="tech-tag">Arctic Embed</span>
+                                    <span class="tech-tag">LangChain</span>
+                                    <span class="tech-tag">NLP</span>
+                                    <span class="tech-tag">Streamlit</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/PythonMLClub/CortexSearch-main" class="project-link">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cortex Agent -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Cortex Agent AI Assistant</h3>
+                                <p class="project-description">Enterprise-grade AI assistant using FastAPI and React, integrating Snowflake Cortex Agent for natural language to SQL generation. JWT-based authentication, YAML-driven schema routing, and real-time chart rendering with Recharts.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">FastAPI</span>
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">Cortex Agent</span>
+                                    <span class="tech-tag">JWT</span>
+                                    <span class="tech-tag">Recharts</span>
+                                    <span class="tech-tag">OpenAPI</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/PythonMLClub/ChatBot_AI-Fastapi-React" class="project-link">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cortex Analyst -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Snowflake Cortex Analyst</h3>
+                                <p class="project-description">LLM-based Text-to-SQL interface for complex medical and book datasets. Streamlit interface allowing users to interact with LLM to generate SQL queries based on text input, tightly integrated with Snowflake data ecosystem.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Cortex Analyst</span>
+                                    <span class="tech-tag">LLM</span>
+                                    <span class="tech-tag">Text-to-SQL</span>
+                                    <span class="tech-tag">Streamlit</span>
+                                    <span class="tech-tag">Snowflake</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/PythonMLClub/Cortex-Analyst-main" class="project-link">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Anomaly Detection -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Time-Series Anomaly Detection Platform</h3>
+                                <p class="project-description">Developed unsupervised and supervised anomaly detection models using Snowflake's native ML functions to identify payment irregularities. End-to-end pipelines for forecasting, model training, and evaluation with SQL-based orchestration.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Snowflake ML</span>
+                                    <span class="tech-tag">Time-Series</span>
+                                    <span class="tech-tag">Forecasting</span>
+                                    <span class="tech-tag">SQL</span>
+                                    <span class="tech-tag">Anomaly Detection</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/PythonMLClub/Anomaly_Forecasting_Snowflake" class="project-link">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ETL Pipeline -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Python-Based ETL and Scalable Data Processing with Airflow & Azure</h3>
+                                <p class="project-description">Designed and orchestrated large-scale ETL pipelines using Apache Airflow to schedule ingestion and processing of massive 
+datasets, storing outputs in Azure Blob Storage. </p>
+                                <p class="project-description">Engineered chunk-based file processing for Parquet and JSON formats to efficiently handle high-volume records, reducing 
+memory load and enhancing throughput.</p>
+                                <p class="project-description">Flattened complex nested JSON structures to enable seamless querying and visualization in Snowflake </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Apache Airflow</span>
+                                    <span class="tech-tag">Azure Blob</span>
+                                    <span class="tech-tag">Parquet</span>
+                                    <span class="tech-tag">JSON</span>
+                                    <span class="tech-tag">ETL</span>
+                                    <span class="tech-tag">Python</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Women's Safety Chatbot -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">AI-Powered ChatBot :AI Chatbot for Women's Safety and Health:</h3>
+                                <p class="project-description">Developed an AI-powered chatbot using Django, NLP, and OpenAI’s LLM to respond exclusively to women-focused queries 
+related to safety and health. Integrated keyword mapping and topic filtering to restrict responses to relevant domains, ensuring responsible AI behavior. 
+Enabled voice-to-text input for improved accessibility, supporting inclusive interaction for non-technical and disabled users. </p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Django</span>
+                                    <span class="tech-tag">NLP</span>
+                                    <span class="tech-tag">OpenAI</span>
+                                    <span class="tech-tag">Voice AI</span>
+                                    <span class="tech-tag">Topic Filtering</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Image Upscaling -->
+                        <div class="project-card">
+                            <div class="project-image">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">ImageUpscale Platform</h3>
+                                <p class="project-description">Intelligent image enhancement solution converting low-resolution images into 2×/4×/8× high-quality outputs using OpenCV, NumPy, and deep learning. Implemented EDSR (Enhanced Deep Super-Resolution) for accuracy-based upscaling.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">OpenCV</span>
+                                    <span class="tech-tag">NumPy</span>
+                                    <span class="tech-tag">Deep Learning</span>
+                                    <span class="tech-tag">EDSR</span>
+                                    <span class="tech-tag">Image Processing</span>
+                                </div>
+                                <div class="project-links">
+                                    <a href="#" class="project-link">
+                                        <i class="fab fa-github"></i> Code
+                                    </a>
+                                    <a href="#" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i> Demo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+        .project-card.featured {
+            border: 2px solid rgba(74, 144, 226, 0.3);
+            background: rgba(74, 144, 226, 0.05);
+        }
+
+        .project-card.featured:hover {
+            border-color: rgba(74, 144, 226, 0.6);
+            box-shadow: 0 25px 50px rgba(74, 144, 226, 0.15);
+        }
+
+        .tech-tag {
+            background: rgba(0,0,0,0.1);
+            color: black;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 500;
+            border: 1px solid rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tech-tag:hover {
+            background: rgba(0,0,0,0.2);
+            transform: scale(1.05);
+        }
+
+        /* Enhanced project grid for more projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        </style>
+
+        <!-- Resume Section -->
+        <section id="resume" class="section resume">
+            <div class="section-content">
+                <div class="resume-container">
+                    <h2 class="section-title">Resume & Certifications</h2>
+                    
+                    <div class="download-section">
+                        <h3 style="margin-bottom: 20px;">Download My Resume</h3>
+                        <p style="margin-bottom: 30px;">Get my complete professional profile and experience</p>
+                        <a href="DhanupriyaA_resume.pdf" class="download-btn" onclick="downloadResume()">
+                            <i class="fas fa-download"></i> Download PDF
+                        </a>
+                        <a href="#" class="download-btn" onclick="showSection('resume')">
+                            <i class="fas fa-eye"></i> View Online
+                        </a>
+                    </div>
+
+                    <div class="certifications-grid">
+                        <div class="cert-card">
+                            <h4>🏆 Featured in Snowflake Quickstart</h4>
+                            <p>Published Document AI Pipeline guide in official Snowflake documentation</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>🎯 New Technology Award</h4>
+                            <p>Won "New Technology Enthusiastic" award from DCI Company in 2023</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>📚 Academic Excellence</h4>
+                            <p>Academic Proficiency Certificate of Merit from E.M.G. Yadava Women's College</p>
+                        </div>
+                        <div class="cert-card">
+                            <h4>📖 Published Article</h4>
+                            <p>"Transforming Enterprise Search with AI" published on Medium platform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact">
+            <div class="section-content">
+                <div class="contact-container">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p style="font-size: 1.2em; margin-bottom: 40px;">Let's collaborate on AI/ML projects and innovative solutions!</p>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-card" onclick="window.open('mailto:dhanumduworkid@gmail.com')">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Email</strong><br>
+                                <a href="mailto:dhanumduworkid@gmail.com" class="contact-link">dhanumduworkid@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card" onclick="window.open('https://linkedin.com/in/dhanupriya-arivanantham-3ba2ab248', '_blank')">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>LinkedIn</strong><br>
+                                <a href="https://linkedin.com/in/dhanupriya-arivanantham-3ba2ab248" class="contact-link" target="_blank">Professional Profile</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card" onclick="window.open('https://github.com/PythonMLClub/Dhanupriya---Profile', '_blank')">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>GitHub</strong><br>
+                                <a href="https://github.com/PythonMLClub/Dhanupriya---Profile" class="contact-link" target="_blank">Code Portfolio</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card" onclick="window.open('tel:+919025614379')">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <strong>Phone</strong><br>
+                                <a href="tel:+919025614379" class="contact-link">+91-9025614379</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 50px; opacity: 0.8; font-size: 0.9em;">
+                        © 2025 Dhanupriya A. Built with passion for AI and innovation.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+                initParticles();
+            }, 1000);
+        });
+
+        // Section navigation
+        function showSection(sectionId) {
+            // Remove active class from all sections and nav links
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to target section and nav link
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Find and activate the corresponding nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.getAttribute('onclick').includes(`'${sectionId}'`)) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Reset scroll position to top when switching sections
+            document.getElementById(sectionId).scrollTop = 0;
+        }
+
+        // Particles animation
+        function initParticles() {
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const particles = [];
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 2,
+                    vy: (Math.random() - 0.5) * 2,
+                    size: Math.random() * 3 + 1
+                });
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    
+                    if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+                    if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+                    
+                    ctx.beginPath();
+                    ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+                    ctx.fill();
+                });
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+
+        // Download resume function
+
+        function downloadResume() {
+            // Create a temporary link to trigger download
+            const link = document.createElement('a');
+            link.href = 'Dhanupriya_A_Resume.pdf'; // Replace with your actual PDF file path
+            link.download = 'Dhanupriya_A_Resume.pdf'; // Name for downloaded file
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const sections = ['home', 'about', 'skills', 'projects', 'resume', 'contact'];
+            const currentSection = document.querySelector('.section.active').id;
+            const currentIndex = sections.indexOf(currentSection);
+            
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                const nextIndex = (currentIndex + 1) % sections.length;
+                showSection(sections[nextIndex]);
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                const prevIndex = (currentIndex - 1 + sections.length) % sections.length;
+                showSection(sections[prevIndex]);
+            }
+        });
+
+        // Window resize handler for particles
+        window.addEventListener('resize', function() {
+            const canvas = document.getElementById('particles');
+            if (canvas) {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+        });
+    </script>
+</body>
+</html>
