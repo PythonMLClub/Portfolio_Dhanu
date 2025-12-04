@@ -9,6 +9,8 @@
 <img align="right" width="380" height="280"
      src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/21710fff-b970-4bb8-8eea-aea5455347a5/top-python-libraries-you-need-to-master-for-ai-in-2025.png?t=1740472650">
 
+---
+
 ### 👩‍💻 About Me
 - 🧠 **Python & AI Developer** with 3.3 years of experience designing scalable AI systems across computer vision, enterprise search, and generative AI.
 - 🏢 Recently worked at Texila Educare Healthcare & Technology Enterprise (May 2025 – Nov 2025), where I led development of the Netrica AI CCTV Monitoring & Smart Attendance System, integrating YOLOv8, MediaPipe FaceMesh, ArcFace ONNX, FAISS, and DFS-based crowd analytics.
@@ -64,7 +66,9 @@
 - Built unsupervised and supervised time-series anomaly detection in Snowflake  
 - Used native SQL orchestration to forecast and validate irregularities  
 
-# 🚀 Featured Projects
+---
+
+### 🚀 Featured Projects
 
 | Project | Tech Highlights |
 |---------|-----------------|
@@ -77,14 +81,12 @@
 
 ---
 
----
-
 ### 🏢 Previous Role – Dot Com Infoway Ltd (Sep 2022 – Dec 2023)
 
 - **AI ChatBot for Women’s Safety**: Built a Django + LLM chatbot for female safety & health queries  
 - Integrated **voice-to-text**, keyword filters, and **responsible AI behavior**  
 - **SMTP Audit Fix**: Solved email delivery failure for AkshayaIndia website  
-- **ImageUpscale Platform**: Used EDSR, OpenCV & DL to upscale low-res images by 2×/4×/8×  
+- **ImageUpscale Platform**: Used EDSR, OpenCV & DL to upscale low-res images by 2×/4×/8×
 
 ---
 
@@ -105,10 +107,10 @@
 #### Frontend, API & Dashboards  
 `React (basic)` • `FastAPI + OpenAPI + JWT` • `Recharts` • `Streamlit Real-time Charts`  
 
----
-
 ### 🤖 AI / ML Toolkit
 `YOLOv8` • `ArcFace` • `FAISS` • `Scikit-learn` • `LangChain` • `LLM / NLP` • `Time-Series Forecasting` • `CNN` • `YOLOv8` • `MediaPipe FaceMesh` • `ArcFace ONNX` • `FAISS` • `DFS Graph Algorithms` • `LLMs (OpenAI, LangChain, Arctic-TILT)` • `Time-Series ML` • `Document AI` • `RAG` • `Generative AI`
+
+---
 
 ### 🧠 Skills & Technologies
 
@@ -151,8 +153,6 @@ Snowflake ML • Airflow • Azure Blob • Parquet/JSON ETL • Chunk processin
   <img height="38" src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
   <img height="38" src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white"/>
 </p>
-
----
 
 ---
 
