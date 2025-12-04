@@ -106,42 +106,48 @@
 #### Frontend, API & Dashboards  
 `React (basic)` • `FastAPI + OpenAPI + JWT` • `Recharts` • `Streamlit Real-time Charts`  
 
-### 🤖 AI / ML Toolkit
+#### 🤖 AI / ML Toolkit
 `YOLOv8` • `ArcFace` • `FAISS` • `Scikit-learn` • `LangChain` • `LLM / NLP` • `Time-Series Forecasting` • `CNN` • `YOLOv8` • `MediaPipe FaceMesh` • `ArcFace ONNX` • `FAISS` • `DFS Graph Algorithms` • `LLMs (OpenAI, LangChain, Arctic-TILT)` • `Time-Series ML` • `Document AI` • `RAG` • `Generative AI`
 
 ---
 
 ### 🧠 Skills & Technologies
 
-### Languages & Frameworks
+#### Languages & Frameworks
 
 - Python • FastAPI • Django • Streamlit • Flask • React (basic)
   
-### Computer Vision
+#### Computer Vision
 
 - YOLOv8 • ArcFace ONNX • MediaPipe FaceMesh • RTSP + FFmpeg • Multi-camera processing • Crowd detection
 
-### Generative AI / NLP
+#### Generative AI / NLP
 
 - Text-to-SQL • Hybrid Search • RAG • LLM Integration • Embeddings • Cortex Complete/Search/Analyst
   
-### Data Engineering
+#### Data Engineering
 
 Snowflake ML • Airflow • Azure Blob • Parquet/JSON ETL • Chunk processing • JSON flattening
 
-### Backend
+#### Backend
 
 - REST APIs • JWT Auth • Multithreaded Services • Realtime API Streaming
 
-#### Languages & Frameworks  
+---
+
+### Languages & Frameworks  
 ![Python](https://img.icons8.com/color/48/python.png)  
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)  
 ![Django](https://img.icons8.com/color/48/django.png)  
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=streamlit&logoColor=white)
 
+---
+
 ### ❄️ Data & Cloud
 `Snowflake  |  Cortex Agent · Search · Analyst · Complete`  
 `Apache Airflow` • `Azure Blob Storage` • `Parquet / JSON ETL`
+
+---
 
 ### 💻 Development Tools
 
@@ -155,7 +161,8 @@ Snowflake ML • Airflow • Azure Blob • Parquet/JSON ETL • Chunk processin
 
 ---
 
-## 🚀 Featured Projects
+### 🚀 Featured Projects
+
 | Project | Tech Highlights |
 |---------|-----------------|
 | **[Document AI Pipeline](https://github.com/PythonMLClub/DOC_AI_Pipeline-main)** | Snowflake Cortex • LangChain • ETL • *Featured in Snowflake Quickstart* |
