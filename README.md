@@ -67,6 +67,15 @@
 
 ---
 
+### 🏢 Previous Role – Dot Com Infoway Ltd (Sep 2022 – Dec 2023)
+
+- **AI ChatBot for Women’s Safety**: Built a Django + LLM chatbot for female safety & health queries  
+- Integrated **voice-to-text**, keyword filters, and **responsible AI behavior**  
+- **SMTP Audit Fix**: Solved email delivery failure for AkshayaIndia website  
+- **ImageUpscale Platform**: Used EDSR, OpenCV & DL to upscale low-res images by 2×/4×/8×
+
+---
+
 ### 🚀 Featured Projects
 
 | Project | Tech Highlights |
@@ -77,15 +86,6 @@
 | **Cortex Agent** | FastAPI + React • JWT Auth • Real-time Charts |
 | **Anomaly Forecasting** | Snowflake SQL ML • Time-Series |
 | **Netrica AI CCTV System** | YOLOv8 • ArcFace • MediaPipe • FAISS • DFS Crowd Detection |
-
----
-
-### 🏢 Previous Role – Dot Com Infoway Ltd (Sep 2022 – Dec 2023)
-
-- **AI ChatBot for Women’s Safety**: Built a Django + LLM chatbot for female safety & health queries  
-- Integrated **voice-to-text**, keyword filters, and **responsible AI behavior**  
-- **SMTP Audit Fix**: Solved email delivery failure for AkshayaIndia website  
-- **ImageUpscale Platform**: Used EDSR, OpenCV & DL to upscale low-res images by 2×/4×/8×
 
 ---
 
