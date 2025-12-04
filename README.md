@@ -9,7 +9,6 @@
 <img align="right" width="380" height="280"
      src="https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality=80/uploads/asset/file/21710fff-b970-4bb8-8eea-aea5455347a5/top-python-libraries-you-need-to-master-for-ai-in-2025.png?t=1740472650">
 
----
 
 ### 👩‍💻 About Me
 - 🧠 **Python & AI Developer** with 3.3 years of experience designing scalable AI systems across computer vision, enterprise search, and generative AI.
