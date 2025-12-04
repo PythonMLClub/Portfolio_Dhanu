@@ -38,6 +38,7 @@
 - Packaged the entire system with **Dockerfile**, enabling enterprise deployment readiness.
 
 **✅ [NetricaAI_CCTV-Monitoring-and-Smart-Attendance-System](https://github.com/PythonMLClub/NetricaAI_CCTV-Monitoring-and-Smart-Attendance-System-)**  
+
 ---
 
 ### 🏢 Previous Role – PBS Info Systems (Jan 2024 – Apr 2025)
