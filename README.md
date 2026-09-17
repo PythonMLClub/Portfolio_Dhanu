@@ -227,31 +227,39 @@ Python & AI Developer | Generative AI • Backend • LLM Integration • Comput
 
 ---
 
-# 🎓 Certifications & Professional Training
+# 📜 Professional Certifications
 
-- 🏆 **Oracle Fusion AI Agent Studio Certified Foundations Associate – Rel 1** — Oracle | Aug 2026
-- 🤖 **Complete MLOps Bootcamp With 10+ End-to-End ML Projects** — Udemy | Jan 2026
-- 🧠 **Full-Stack Deep Learning, MLOps, and MLflow** — LinkedIn Learning Community | Nov 2025
-- 📚 **Machine Learning** — Udemy | Sep 2023
-- 🤖 **Artificial Intelligence** — HCL GUVI | Aug 2023
-
----
-
-# 🎓 Education
-
-- 🎓 **Master of Computer Applications (MCA)** — 2019–2022
-- 🎓 **Bachelor of Computer Applications (BCA)** — 2016–2019
-- 📘 **Higher Secondary Education (12th)** — Nirmala Girls Higher Secondary School | 83%
-- 📘 **Secondary Education (10th)** — Nirmala Girls Higher Secondary School | 91%
+| Certification / Course | Issuing Organization | Issued |
+|:---|:---|:---|
+| **Oracle Fusion AI Agent Studio Certified Foundations Associate – Rel 1** | Oracle | Aug 2026 |
+| **Complete MLOps Bootcamp With 10+ End-to-End ML Projects** | Udemy | Jan 2026 |
+| **Full-Stack Deep Learning, MLOps, and MLflow** | LinkedIn Learning Community | Nov 2025 |
+| **Machine Learning** | Udemy | Sep 2023 |
+| **Artificial Intelligence** | HCL GUVI | Aug 2023 |
 
 ---
 
-# 🏆 Achievements
+# 🏆 Honors, Awards & Recognition
 
-- 🏆 **New Technology Enthusiast Award** — Dot Com Infoway, 2023
-- 🏅 **Academic Proficiency Certificate of Merit** — 2019
-- ⭐ Recognized for contributions to **NetricaAI** CCTV monitoring and smart-attendance development.
-- ⭐ Recognized for **Enterprise Search** implementation and technical publication.
+- 🏆 **New Technology Enthusiast Award** — Dot Com Infoway | 2023  
+  *Awarded for demonstrating exceptional technical enthusiasm, agility, and innovation in AI & emerging technologies.*
+- ⭐ **Texila Appreciation Recognition** — Texila Educare Healthcare & Technology Enterprise | 2025  
+  *Commended for pivotal contributions to the NetricaAI real-time CCTV monitoring and smart attendance platform.*
+- ❄️ **Snowflake Quickstart Official Publication** — Snowflake | 2024  
+  *Document AI Pipeline Automation guide officially published in [Snowflake Quickstart Documentation](https://quickstarts.snowflake.com/guide/doc-ai-pipeline-automation/index.html#0).*
+- 📖 **Enterprise Search AI Technical Publication** — Medium | 2024  
+  *Published technical article: [Transforming Enterprise Search with AI using Snowflake Cortex Search](https://sarathi-data-ml-cloud.medium.com/transforming-enterprise-search-with-ai-using-snowflake-cortex-search-ddf8a9d09d30).*
+- 🏅 **Academic Proficiency Certificate of Merit** — E.M.G. Yadava Women's College | 2019  
+  *Awarded for outstanding academic performance in Bachelor of Computer Applications (BCA).*
+
+---
+
+# 🎓 Academic Education
+
+- 🎓 **Master of Computer Applications (MCA)** — The American College | 79% (2019–2022)
+- 🎓 **Bachelor of Computer Applications (BCA)** — E.M.G. Yadava Women's College | 79% (2016–2019)
+- 🏫 **Higher Secondary Certificate (HSC / 12th)** — Nirmala Girls Higher Secondary School | 83% (2016)
+- 🏫 **Secondary School Leaving Certificate (SSLC / 10th)** — Nirmala Girls Higher Secondary School | 91% (2014)
 
 ---
 
